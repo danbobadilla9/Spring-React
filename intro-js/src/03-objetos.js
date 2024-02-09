@@ -38,21 +38,19 @@ const invoice = {
     }
 }
 
+console.log(invoice);
+console.log('Cliente ->'+invoice.client);
+// invoice.client = 'israel segundo'
+console.log('Cliente ->'+invoice.client);
+console.log(typeof invoice);
+console.log(invoice.client);
+invoice.client.name='jose perez'
+console.log(invoice.client);
+ 
 
-// las dos variables almacenan a la misma referencia a la memoria donde esta el objeto
-const invoice2 = invoice;
+console.log(invoice.greeting());
+console.log('Calculando el total: '+invoice.total());
 
-console.log(invoice2);
-invoice.name = 'pablito'
-console.log(invoice2);
-
-// Como los dos apuntan a la misma referencia esto quiere decir que son lo mismo 
-console.log(invoice === invoice2);
-
-// de esta menara creamos un nuevo objeto
-const invoice3 = {... invoice};
-
-console.log(invoice === invoice3);
 
 
 
