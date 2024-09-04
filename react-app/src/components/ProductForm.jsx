@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 
 const initialDataForm = {
+    id:0,
     name: '',
     description: '',
     price: ''
@@ -71,7 +72,7 @@ export const ProductForm = ({handlerAddProduct, productSelected}) => {
 
             <div>
                 <button type="submit" >
-                    Create
+                    Save
                 </button>
             </div>
 

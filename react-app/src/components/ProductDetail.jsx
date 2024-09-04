@@ -11,7 +11,7 @@ export const ProductDetail = ({producto = {} , handlerRemoveProduct, handlerProd
                 </button>
             </td>
             <td>
-                <button onClick={ () => handlerRemoveProduct(producto.name) } >
+                <button onClick={ () => handlerRemoveProduct(producto.id) } >
                     remove
                 </button>
             </td>

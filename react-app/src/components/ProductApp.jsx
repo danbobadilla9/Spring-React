@@ -10,6 +10,7 @@ export const ProductApp = () => {
   const [products, setProducts] = useState([]);
 
   const [productSelected,setProductSelected] = useState({
+    id:0,
     name: '',
     description: '',
     price: ''
@@ -21,11 +22,23 @@ export const ProductApp = () => {
   }, []);
 
   const handlerAddProduct = (product) => {
-    setProducts([...products,{...product}]);
+
+    
+    if(product.id > 0){
+      setProducts(products.map( prod => {
+        if( prod.id == product.id ){
+          return {...product}
+        }
+        return prod;
+      } ));
+    }else{
+      setProducts([...products,{...product,id: new Date().getTime}]);
+    }
+    
   }
 
-  const handlerRemoveProduct = (name) => {
-    setProducts(products.filter( product => product.name != name));
+  const handlerRemoveProduct = (id) => {
+    setProducts(products.filter( product => product.id != id));
   }
 
   const handlerProductSelected = ( product ) => {
