@@ -9,6 +9,12 @@ export const ProductApp = () => {
 
   const [products, setProducts] = useState([]);
 
+  const [productSelected,setProductSelected] = useState({
+    name: '',
+    description: '',
+    price: ''
+  });
+
   useEffect(() => {
     const result = listProduct();
     setProducts(result);
@@ -21,16 +27,22 @@ export const ProductApp = () => {
   const handlerRemoveProduct = (name) => {
     setProducts(products.filter( product => product.name != name));
   }
+
+  const handlerProductSelected = ( product ) => {
+    setProductSelected({...product})
+  }
+
+  
   
   return (
     <div>
       <h1>Productos!</h1>
       <div>
         <div>
-          <ProductForm handlerAddProduct={handlerAddProduct} />
+          <ProductForm handlerAddProduct={handlerAddProduct} productSelected={productSelected}/>
         </div>
         <div>
-          <ProductGrid products={products} handlerRemoveProduct={handlerRemoveProduct}/>
+          <ProductGrid products={products} handlerRemoveProduct={handlerRemoveProduct} handlerProductSelected={handlerProductSelected} />
         </div>
       </div>
 
